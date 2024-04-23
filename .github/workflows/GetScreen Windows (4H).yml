@@ -24,7 +24,9 @@ jobs:
 
       - name: Create time.py
         run: |
-          echo "import datetime" > time.py
+          echo "# -*- coding: utf-8 -*-" > time.py
+          echo "" >> time.py
+          echo "import datetime" >> time.py
           echo "" >> time.py
           echo "def main():" >> time.py
           echo "    current_time = datetime.datetime.now()" >> time.py
