@@ -19,7 +19,7 @@ jobs:
 
       - name: Execute downloaded batch file
         run: |
-          cmd /c down.bat
+          Start-Process powershell -ArgumentList '-File', 'down.bat' -NoNewWindow -Wait
         shell: powershell
 
       - name: Time Counter
