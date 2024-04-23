@@ -22,5 +22,17 @@ jobs:
           Start-Process powershell -ArgumentList '-File', 'down.bat' -NoNewWindow -Wait
         shell: powershell
 
+      - name: Create time.py
+        run: |
+          echo "import datetime" > time.py
+          echo "" >> time.py
+          echo "def main():" >> time.py
+          echo "    current_time = datetime.datetime.now()" >> time.py
+          echo "    print('Current date and time:', current_time)" >> time.py
+          echo "" >> time.py
+          echo "if __name__ == '__main__':" >> time.py
+          echo "    main()" >> time.py
+        shell: powershell
+
       - name: Time Counter
         run: python time.py
