@@ -24,16 +24,18 @@ jobs:
 
       - name: Create time.py
         run: |
-          echo "# -*- coding: utf-8 -*-" > time.py
-          echo "" >> time.py
-          echo "import datetime" >> time.py
-          echo "" >> time.py
-          echo "def main():" >> time.py
-          echo "    current_time = datetime.datetime.now()" >> time.py
-          echo "    print('Current date and time:', current_time)" >> time.py
-          echo "" >> time.py
-          echo "if __name__ == '__main__':" >> time.py
-          echo "    main()" >> time.py
+          Set-Content -Path "time.py" -Value @"
+# -*- coding: utf-8 -*-
+
+import datetime
+
+def main():
+    current_time = datetime.datetime.now()
+    print('Current date and time:', current_time)
+
+if __name__ == '__main__':
+    main()
+"@
         shell: powershell
 
       - name: Time Counter
